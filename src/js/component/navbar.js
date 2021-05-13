@@ -25,7 +25,11 @@ export const Navbar = () => {
 	};
 	return (
 		<nav className="navbar mb-1 mt-1 container-fluid">
-			<span className="navbar-brand mb-0 h1" onClick={e => history.push("/home")} id="hover-logo">
+			<span
+				className="navbar-brand mb-0 h1"
+				style={{ cursor: "pointer" }}
+				onClick={e => history.push("/home")}
+				id="hover-logo">
 				Game
 				<i className="fas fa-gamepad m-2" />
 				Finder

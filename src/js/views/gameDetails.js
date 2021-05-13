@@ -20,8 +20,10 @@ import PropTypes from "prop-types";
 export const GameDetails = props => {
 	const { store, actions } = useContext(Context);
 	const [show, setShow] = useState(false);
+	const [popup, setPopup] = useState(false);
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
+	const handleImage = () => (popup == false ? setPopup(true) : setPopup(false));
 	let history = useHistory();
 	let rating = [];
 	var gameRequirements = [];
@@ -303,6 +305,8 @@ export const GameDetails = props => {
 					<Container>
 						<div>
 							<img
+								onClick={handleImage}
+								style={{ cursor: "pointer" }}
 								className="rounded details-image"
 								src={
 									store.game.background_image != null
@@ -740,6 +744,23 @@ export const GameDetails = props => {
 						</Tab.Content>
 					</Tab.Container>
 				</Container>
+				<Modal show={popup} dialogClassName="modal-90w" onHide={handleImage}>
+					<Modal.Header closeButton></Modal.Header>
+					<img
+						className="rounded details-image"
+						src={
+							store.game.background_image != null
+								? store.game.background_image
+								: "https://cdn.pixabay.com/photo/2020/12/14/15/48/light-bulb-5831252_960_720.jpg"
+						}
+						alt="First slide"
+					/>
+					<Modal.Footer>
+						<Button variant="secondary" onClick={handleImage}>
+							Close
+						</Button>
+					</Modal.Footer>
+				</Modal>
 			</Container>
 		);
 	} else {
