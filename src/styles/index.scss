@@ -99,15 +99,6 @@ h5{
         
     }
 }
-#hover-logo{
-    color: black;
-    transition: color 300ms ease-in-out;
-
-    &:hover {
-        color: white;
-        //color: rgb(255, 184, 4);
-    }
-}
 
 #hover{
     color: black;
@@ -778,9 +769,19 @@ th {
     height: 3rem;
     margin: 3rem;
 }
+#logo{
+    width: 58%;
+    height: 100%;
+    object-fit: cover;
+    background-image: none;
+    background-repeat: no-repeat;
+}
 @media only screen and (min-width: 768px){
     .search-x{
         right: 4%;
+    }
+    #logo{
+        width: 42%;
     }
     .nav-search{
         width: 40%;
@@ -894,6 +895,9 @@ th {
     .smallScreen{
         display:none;
     }
+    #logo {
+        width: 16%;
+    }    
 }
 @media only screen and (min-width: 1627px){
     .screen-medium-xl{

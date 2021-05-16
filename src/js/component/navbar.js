@@ -4,6 +4,8 @@ import { Dropdown, Spinner, Card } from "react-bootstrap";
 import { Context } from "../store/appContext";
 import { GameCard } from "../component/gameCard";
 import { debounce } from "lodash";
+import logo from "../../img/blacklogo.jpg";
+
 export const Navbar = () => {
 	const [gameName, setGameName] = useState("");
 	const { store, actions } = useContext(Context);
@@ -25,15 +27,7 @@ export const Navbar = () => {
 	};
 	return (
 		<nav className="navbar mb-1 mt-1 container-fluid">
-			<span
-				className="navbar-brand mb-0 h1"
-				style={{ cursor: "pointer" }}
-				onClick={e => history.push("/home")}
-				id="hover-logo">
-				Game
-				<i className="fas fa-gamepad m-2" />
-				Finder
-			</span>
+			<img src={logo} id="logo" onClick={e => history.push("/home")} style={{ cursor: "pointer" }} alt="logo" />
 			<div className="nav-search">
 				<div className="dropdown search-bar">
 					<input
