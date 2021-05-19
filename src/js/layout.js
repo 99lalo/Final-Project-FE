@@ -23,7 +23,7 @@ const Layout = () => {
 
 	return (
 		<div className="d-flex flex-column">
-			<BrowserRouter basename={""}>
+			<BrowserRouter basename={"gf"}>
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
