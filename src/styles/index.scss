@@ -9,7 +9,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-
+@import 'buttons';
 h1{
     font-size: 1.5rem;
     font-family: 'Oswald', sans-serif;
@@ -32,6 +32,10 @@ h5{
 }
 .game-card-title{
     font-family: 'Oswald', sans-serif;
+    background-color: #000000b5;
+    width: 100%;
+    padding: 0.4rem;
+    margin-bottom: 0;
 }
 .loading-screen{
     width: 100%;
@@ -94,6 +98,10 @@ h5{
     color: #e2e2e2;
     transition: color 300ms ease-in-out;
     overflow: hidden;
+    padding: 0%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
     &:hover {
         color: rgb(153, 255, 179);
         
@@ -125,10 +133,9 @@ h5{
     }
 }
 
-// .carousel-image{
-//     box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
-
-// }
+.carousel-inner{
+    border-radius: 1%;
+}
 
 //buttons
 #toggletags{
@@ -189,6 +196,7 @@ h5{
     border: 10px solid;
     border-image-slice: 1;
     border-width: 5px;
+    font-family: 'Oswald', sans-serif;
     border-image-source: linear-gradient(90deg, rgba(150,255,201,1) 0%, rgba(170,225,255,1) 100%);
     box-shadow: 5px 5px 5px grey !important;
     color: rgb(58, 66, 141);
@@ -224,6 +232,8 @@ h5{
 .dropdown button{
     width: 100%;
 }
+
+
 .btn-dark{
     color: rgb(58, 66, 141);
     background-color: rgb(106,255,179);
@@ -720,15 +730,20 @@ th {
 .cardFilters {
     position: absolute;
     font-size: 2rem;
+    width: 100%;
+    text-align: start;
 }
 .bigCard {
-    top: 61%;
+    top: 0%;
+    right: 0%;
 }
 .mediumCard{
-    top: 77%;
+    top: 0%;
+    right: 0%;
 }
 .smallCard{
-    top: 71%;
+    top: 0%;
+    right: 0%;
 }
 .navbar{
     width: 100%
@@ -781,7 +796,7 @@ th {
         right: 4%;
     }
     #logo{
-        width: 42%;
+        width: 28%;
     }
     .nav-search{
         width: 40%;
@@ -847,9 +862,6 @@ th {
     .detailsNumbers{
         font-size: 3rem;
         border-radius: 50%;
-    }
-    .bigCard{
-        top: 85%;
     }
     .website {
         font-size: 5rem;

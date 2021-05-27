@@ -13,6 +13,7 @@ export const Sorter = props => {
 		props.setSort(sorted);
 		props.setPagination(1);
 	};
+	let size = window.matchMedia("(max-width: 995px)");
 	return (
 		<Container>
 			<Row>
@@ -30,9 +31,27 @@ export const Sorter = props => {
 										: e => props.setInverted(false)
 								}>
 								{props.inverted == false ? (
-									<i className="fas fa-sort-up btn-fontsize" />
+									<div>
+										{size.matches ? (
+											<i className="fas fa-sort-up btn-fontsize" />
+										) : (
+											<>
+												<span>Ascending</span>
+												<i className="fas fa-sort-up btn-fontsize ml-3" />
+											</>
+										)}
+									</div>
 								) : (
-									<i className="fas fa-sort-down btn-fontsize" />
+									<div>
+										{size.matches ? (
+											<i className="fas fa-sort-down btn-fontsize" />
+										) : (
+											<>
+												<span>Descending</span>
+												<i className="fas fa-sort-down btn-fontsize ml-3" />
+											</>
+										)}
+									</div>
 								)}
 							</Button>
 						</Col>
@@ -44,9 +63,27 @@ export const Sorter = props => {
 								style={{ width: "100%" }}
 								onClick={store.id > 0 ? e => actions.changePreference() : () => handleShow()}>
 								{store.preference == false ? (
-									<i className="fas fa-chess-pawn btn-fontsize" />
+									<div>
+										{size.matches ? (
+											<i className="fas fa-chess-pawn btn-fontsize" />
+										) : (
+											<>
+												<span>Preferences</span>
+												<i className="fas fa-chess-pawn btn-fontsize ml-3" />
+											</>
+										)}
+									</div>
 								) : (
-									<i className="fas fa-chess-king btn-fontsize" />
+									<div>
+										{size.matches ? (
+											<i className="fas fa-chess-king btn-fontsize" />
+										) : (
+											<>
+												<span>Hide</span>
+												<i className="fas fa-chess-king btn-fontsize ml-3" />
+											</>
+										)}
+									</div>
 								)}
 							</Button>
 							<Modal show={show} onHide={handleClose}>

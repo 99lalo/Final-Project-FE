@@ -27,7 +27,11 @@ export const UserLogin = props => {
 								{" "}
 								register first.
 							</Alert.Link>
-							.
+						</Alert>
+					)}
+					{store.success.registration == true && (
+						<Alert className="marginError center" variant="success">
+							Registration successful, feel free to log in!
 						</Alert>
 					)}
 					<Container

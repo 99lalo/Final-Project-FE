@@ -38,7 +38,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			found: [],
 			check: [],
 			loading: { homeLoading: true, searchLoading: true, searchBarLoading: true, loginLoading: false },
-			errors: { loginError: false, registerError: false }
+			errors: { loginError: false, registerError: false },
+			success: { registration: false }
 		},
 		actions: {
 			// new user registration
@@ -65,10 +66,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 						.then(response => {
 							history.push("/login");
 							setStore({ errors: { registerError: false } });
+							setStore({ success: { registration: true } });
 						})
 						.catch(error => console.error("Error:", error));
 				} else {
-					setStore({ errors: { registerError: true } });
+					setStore({ errors: { registerError: true }, success: { registration: false } });
 				}
 			},
 			// login & generate token
@@ -96,17 +98,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 								history.push("/home");
 								setStore({
 									errors: { loginError: false },
-									loading: { ...store.loading, loginLoading: false }
+									loading: { ...store.loading, loginLoading: false },
+									success: { registration: false }
 								});
 							} else {
 								setStore({
 									errors: { loginError: true },
-									loading: { ...store.loading, loginLoading: false }
+									loading: { ...store.loading, loginLoading: false },
+									success: { registration: false }
 								});
 							}
 						});
 				} else {
-					setStore({ errors: { loginError: true }, loading: { ...store.loading, loginLoading: false } });
+					setStore({
+						errors: { loginError: true },
+						loading: { ...store.loading, loginLoading: false },
+						success: { registration: false }
+					});
 				}
 			},
 			syncToken: () => {

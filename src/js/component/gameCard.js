@@ -84,16 +84,28 @@ export const GameCard = props => {
 				alt="Card Image"
 			/>
 			<Card.ImgOverlay id="card">
-				<Card.Title className="game-card-title">{props.game.name}</Card.Title>
 				<Card.Text>
 					{store.preference == true > 0 && (
 						<div className={filters}>
-							{props.game.platforms != undefined && <span className={checkPlatform()}>P</span>}
-							{props.game.genres != undefined && <span className={checkGenre()}>G</span>}
-							{props.game.tags != undefined && <span className={checkTags()}>T</span>}
+							{props.game.platforms != undefined && (
+								<span style={{ marginLeft: "1rem" }} className={checkPlatform()}>
+									P
+								</span>
+							)}
+							{props.game.genres != undefined && (
+								<span style={{ marginLeft: "0.2rem" }} className={checkGenre()}>
+									G
+								</span>
+							)}
+							{props.game.tags != undefined && (
+								<span style={{ marginLeft: "0.2rem" }} className={checkTags()}>
+									T
+								</span>
+							)}
 						</div>
 					)}
 				</Card.Text>
+				<Card.Title className="game-card-title">{props.game.name}</Card.Title>
 			</Card.ImgOverlay>
 		</Card>
 	);
